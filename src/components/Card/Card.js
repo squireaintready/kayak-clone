@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import useStyles from "./styles";
+import "./styles.css";
 
 const Card = ({ airlineData }) => {
-  const classes = useStyles();
   const [isHover, setIsHover] = useState(false);
   const makeHoverTrue = () => {
     setIsHover(true);
@@ -12,26 +11,26 @@ const Card = ({ airlineData }) => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className='card__root'>
       <div
-        className={classes.card}
+        className="card__card"
         onMouseEnter={makeHoverTrue}
         onMouseLeave={makeHoverFalse}
       >
         <img
           src={`https://www.kayak.com${airlineData.logoURL}`}
           alt="not available"
-          className={classes.img}
+          className="card__img"
         />
-        <div className={classes.content}>
-          <h4 className={classes.hoveredTitle}>{airlineData.name}</h4>
+        <div className="card__content">
+          <h4 className="card__hoveredTitle">{airlineData.name}</h4>
           {isHover ? (
-            <div className={classes.hoveredContent}>
-              <p className={classes.hoveredText}>{airlineData.alliance}</p>
-              <p className={classes.hoveredText}>{airlineData.phone}</p>
-              <p className={classes.hoveredURL}>{airlineData.site}</p>
+            <div className="card__hoveredContent">
+              <p className="card__hoveredText">{airlineData.alliance}</p>
+              <p className="card__hoveredText">{airlineData.phone}</p>
+              <p className="card__hoveredURL">{airlineData.site}</p>
             </div>
-          ) : null}
+           ) : null}
         </div>
       </div>
     </div>
